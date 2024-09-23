@@ -1,0 +1,94 @@
+/* Προσαρμοσμένο στυλ για τη σελίδα How to Use */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1300px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* Επιτρέπει την αναδίπλωση των στοιχείων σε μικρότερα μεγέθη οθόνης */
+}
+
+.chart-container {
+  flex: 1; /* Κάνουμε τα γραφήματα να προσαρμόζονται με βάση τον διαθέσιμο χώρο */
+  min-width: 300px; /* Καθορίζουμε ένα ελάχιστο πλάτος για να μην γίνονται πολύ μικρά */
+  max-width: 450px; /* Καθορίζουμε μέγιστο πλάτος για τα γραφήματα */
+  height: 350px; /* Καθορίζουμε σταθερό ύψος για τα γραφήματα */
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+}
+
+.material-icons.icon-large {
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+}
+
+.how-to-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 20px; /* Προσθήκη περιθωρίου για καλύτερη εμφάνιση */
+}
+
+h1 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.how-to-use-content {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+ol {
+  list-style: none; /* Αφαιρούμε τα προκαθορισμένα markers */
+  counter-reset: list-counter; /* Ρυθμίζουμε ένα counter */
+}
+
+ol li {
+  counter-increment: list-counter; /* Αυξάνουμε το counter για κάθε στοιχείο */
+  position: relative; /* Θέτουμε τη σχετική θέση για να τοποθετήσουμε το marker */
+  margin-left: 30px; /* Προσθέτουμε περιθώριο για να δημιουργήσουμε χώρο για το marker */
+  padding-left: 10px; /* Προσθέτουμε λίγο padding για καλύτερη εμφάνιση */
+  margin-bottom: 10px; /* Προσθέτουμε απόσταση μεταξύ των στοιχείων */
+}
+
+ol li::before {
+  content: counter(list-counter) ". "; /* Προσθέτουμε το αριθμητικό marker */
+  font-weight: bold; /* Κάνουμε το marker bold */
+  position: absolute;
+  left: -30px;
+  top: 0;
+}

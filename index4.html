@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer - Ergon</title>
+
+    <!-- Εισαγωγή της γραμματοσειράς Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="icon"
+      href="https://jpg2png.com/download/19rc15o9ttc1ncq1/file_1ins8p6ugutog11b15lknbt1dm/Untitled_logo_1_free-file%20(2)%20(1).png"
+      type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: Lato, "sans-serif";
+        background-color: #f0f0f0;
+        margin: 0;
+        height: 100vh; /* Χρησιμοποιούμε το ύψος της θέας για κεντράρισμα */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      input {
+        padding: 5px;
+        margin: 10px;
+        font-size: 20px;
+        display: block;
+        margin: 0 auto 20px; /* Κεντράρει το πεδίο εισαγωγής και δίνει απόσταση κάτω */
+      }
+
+      .icon-button {
+        font-size: 96px;
+        color: #555;
+        transition: font-size 0.3s ease; /* Προσθέτει ομαλή μετάβαση */
+        cursor: pointer;
+      }
+
+      .icon-button:hover {
+        color: #333;
+      }
+
+      #timer {
+        font-size: 100px;
+        margin-top: 20px;
+      }
+
+      .time-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Δημιουργεί απόσταση μεταξύ των κουμπιών */
+        margin-top: 20px;
+      }
+
+      .menu-item {
+        text-align: center;
+      }
+
+      input:focus {
+        border-color: #2980b9;
+        outline: none;
+        box-shadow: 0 0 4px rgba(41, 128, 185, 0.5);
+      }
+
+      .back-arrow {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .back-arrow:hover {
+        transform: scale(1.1);
+      }
+
+      .material-icons.icon-large {
+        font-size: 30px;
+        color: black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input
+        type="number"
+        id="minutesInput"
+        min="1"
+        placeholder="Enter time here..."
+      />
+      <div id="timer">00:00</div>
+      <div class="time-menu">
+        <!-- Χρησιμοποιούμε τα Material Icons στη θέση των κουμπιών -->
+        <div class="menu-item">
+          <span class="material-icons icon-button" onclick="startTimer()"
+            >play_circle_filled</span
+          >
+        </div>
+        <div class="menu-item">
+          <span class="material-icons icon-button" onclick="pauseTimer()"
+            >stop</span
+          >
+        </div>
+        <div class="menu-item">
+          <span class="material-icons icon-button" onclick="deleteTime()"
+            >delete</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="back-arrow">
+      <i class="material-icons icon-large" onclick="window.history.back()"
+        >arrow_back_ios</i
+      >
+    </div>
+    <script>
+      let countdown;
+      let timeRemaining; // Αποθήκευση του υπολειπόμενου χρόνου
+
+      function startTimer() {
+        // Αν countdown υπάρχει ήδη, δεν κάνουμε τίποτα για να αποτρέψουμε πολλαπλούς timers
+        if (countdown) {
+          return;
+        }
+
+        // Αν υπάρχει υπόλοιπος χρόνος (timeRemaining), δεν επαναρυθμίζουμε τον χρόνο
+        if (timeRemaining === undefined || timeRemaining <= 0) {
+          const minutesInput = document
+            .getElementById("minutesInput")
+            .value.trim();
+          const minutes = parseInt(minutesInput);
+
+          // Έλεγχος για μη έγκυρη ή μη αριθμητική είσοδο
+          if (isNaN(minutes) || minutes <= 0) {
+            document.getElementById("minutesInput").value = "No";
+            return;
+          }
+
+          // Μετατροπή λεπτών σε δευτερόλεπτα μόνο όταν δεν υπάρχει υπόλοιπος χρόνος
+          timeRemaining = minutes * 60;
+        }
+
+        const display = document.getElementById("timer");
+        displayTime(timeRemaining, display);
+
+        countdown = setInterval(() => {
+          timeRemaining--;
+          displayTime(timeRemaining, display);
+
+          if (timeRemaining <= 0) {
+            clearInterval(countdown);
+            countdown = null;
+            display.innerHTML = "Ο Time's up!";
+          }
+        }, 1000);
+      }
+
+      function pauseTimer() {
+        clearInterval(countdown); // Σταματάμε τον timer
+        countdown = null; // Ορίζουμε το countdown ως null ώστε να μπορεί να ξεκινήσει ξανά με την startTimer
+      }
+
+      function displayTime(seconds, display) {
+        const minutes = Math.floor(seconds / 60);
+        const remainderSeconds = seconds % 60;
+        const formattedTime = `${minutes < 10 ? "0" : ""}${minutes}:${
+          remainderSeconds < 10 ? "0" : ""
+        }${remainderSeconds}`;
+        display.innerHTML = formattedTime;
+      }
+
+      function deleteTime() {
+        clearInterval(countdown); // Σταματάμε τον χρονομετρητή
+        countdown = null; // Μηδενίζουμε το countdown
+
+        // Επαναφέρουμε τον χρόνο και το χρονόμετρο στην αρχική κατάσταση
+        timeRemaining = undefined;
+
+        // Καθαρίζουμε το πεδίο εισαγωγής
+        document.getElementById("minutesInput").value = "";
+
+        // Επαναφέρουμε την εμφάνιση του χρονόμετρου
+        document.getElementById("timer").innerHTML = "00:00";
+      }
+    </script>
+  </body>
+</html>

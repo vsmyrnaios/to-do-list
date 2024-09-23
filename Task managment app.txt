@@ -1,0 +1,17 @@
+Task managment app
+
+1.task container
+2.notes
+3.hamburger menu
+4.customisable task container
+5.settings
+6.preimium
+7.notifications
+8.push notifications
+9.login-sign up
+
+
+5.settings:
+dark theme
+language
+log out

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="icon"
+      href="https://jpg2png.com/download/19rc15o9ttc1ncq1/file_1ins8p6ugutog11b15lknbt1dm/Untitled_logo_1_free-file%20(2)%20(1).png"
+      type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles1.css" />
+    <title class="title">Ergon - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+
+      <ul class="menu__box">
+        <li><a class="menu__item" href="index2.html">How to Use</a></li>
+        <li><a class="menu__item" href="index3.html">My Stats</a></li>
+        <li><a class="menu__item" href="index5.html">Notes</a></li>
+        <li><a class="menu__item" href="index6.html">Premium</a></li>
+      </ul>
+    </div>
+    <div class="waviy">
+    <div class="container" id="container-box">
+      <button id="closeButton" class="close-button">×</button>
+      <button id="settings" class="settings hidden">⚙️</button>
+      <div id="settingsMenu" class="settings-menu hidden">
+        <button class="settings-option" data-theme="theme-default">
+          Default Theme
+        </button>
+        <button class="settings-option" data-theme="theme-dark">
+          Dark Theme
+        </button>
+        <button class="settings-option" data-theme="theme-colorful">
+          Colorful Theme
+        </button>
+        <button class="settings-option" data-theme="theme-elegant">
+          Elegant Theme
+        </button>
+      </div>
+      <h1>My tasks</h1>
+      <div class="input-container">
+        <div class="input-wrapper">
+          <label for="taskInput">Task</label>
+          <input type="text" id="taskInput" placeholder="Add a new task..." />
+        </div>
+        <div class="input-wrapper">
+          <label for="taskDate">Date</label>
+          <input type="date" id="taskDate" />
+        </div>
+        <div class="input-wrapper">
+          <label for="taskTime">Time</label>
+          <input type="time" id="taskTime" />
+        </div>
+        <div class="input-wrapper">
+          <label for="priority">Rank</label>
+          <select id="priority" class="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option></select
+          ><br /><br />
+        </div>
+      </div>
+      <button id="addTaskButton">Add Task</button>
+      <ul id="taskList"></ul>
+    </div>
+    <div class="menu">
+      <div class="menu-item" id="task-icon">
+          <span class="material-icons">list_alt</span>
+          <p>Tasks</p>
+      </div>
+      <div class="menu-item">
+          <span class="material-icons" id="note-icon">edit_note</span>
+          <p>Notes</p>
+      </div>
+      <div class="menu-item">
+          <span class="material-icons">diamond</span>
+          <p>Premium</p>
+      </div>
+  </div>
+    <div class="containerTwo">
+      <input type="checkbox" id="toggle-btn" />
+      <label for="toggle-btn"></label>
+    </div>
+    <div id="notification" class="hidden">
+      <div class="icon-container">
+        <span class="material-icon">warning</span>
+      </div>
+      <div class="message">A Danger Message</div>
+      <div class="close-btn">&times;</div>
+    </div>
+    <span class="material-icons icon" id="basic-settings">
+      tune
+  </span>
+    <script src="tasks.js"></script>
+  </body>
+</html>
