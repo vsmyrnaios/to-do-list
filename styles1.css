@@ -416,6 +416,7 @@ button.delete-btn:hover {
   --settings-color: #002b36;
   --x-button-color: #002b36;
   --x-button-hover-color: #002b36;
+  --x-button: white;
   --add-Task-background-color: #d6bda4;
   --add-Task-background-hover: #b89c87;
 }
@@ -576,6 +577,7 @@ body {
   cursor: pointer;
   transition: color 0.3s ease;
   background-color: var(--x-button-color);
+  color: var(--x-button);
 }
 
 .close-button:hover {
