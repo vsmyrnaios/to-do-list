@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     notification.classList.add("visible");
 
     // Κουμπί κλεισίματος
-    const closeBtn = notification.querySelector(".close-btn");
     closeBtn.addEventListener("click", function () {
       notification.classList.remove("visible");
       notification.classList.add("hidden");
