@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="material-icons">warning</span>
       </div>
       <div class="message">Time to start: ${taskText}</div>
-      <div class="close-btn">&times;</div>
     `;
 
     notification.classList.remove("hidden");
@@ -293,10 +292,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   noteIcon.addEventListener("click", function () {
     window.location.href = "index5.html";
-  });
-
-  timerIcon.addEventListener("click", function () {
-    window.location.href = "index4.html";
   });
 
   // Εγγραφή του event listener για το κουμπί κλεισίματος (Χ)

@@ -1,0 +1,115 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chart-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-middle {
+  align-self: flex-end; /* Κάνει το μεσαίο γράφημα να ευθυγραμμιστεί στο κάτω μέρος */
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.chart-container.last {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-container.last .legend {
+  margin-top: auto; /* Βάζει τα labels κάτω από το γράφημα */
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+}
+
+.material-icons.icon-large {
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+}
+
+.how-to-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.how-to-use-content {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+ol {
+  list-style: none;
+  counter-reset: list-counter;
+}
+
+ol li {
+  counter-increment: list-counter;
+  position: relative;
+  margin-left: 30px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+ol li::before {
+  content: counter(list-counter) ". ";
+  font-weight: bold;
+  position: absolute;
+  left: -30px;
+  top: 0;
+}
